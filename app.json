@@ -1,0 +1,30 @@
+{
+	"name": "Reverse Proxy for Auth0 Custom Domains with Self-Managed Certificates",
+	"description": "nginxをHeroku上に構築し、Auth0のカスタムドメインのためのリバースプロキシを起動します。",
+	"keywords": [
+		"reverse proxy",
+		"nginx",
+		"Auth0",
+		"Heroku",
+		"Custom Domains",
+		"Self-Managed Certificates"
+	],
+	"repository": "https://github.com/MibuWatanabe/heroku-reverse-proxy-for-auth0",
+	"buildpacks": [
+		{
+			"url": "https://github.com/heroku/heroku-buildpack-nginx.git"
+		}
+	],
+	"env": {
+		"AUTH0_ORIGIN_DOMAIN_NAME": {
+			"description": "カスタムドメインの設定プロセス中にAuth0ダッシュボードから取得したOrigin Domain Name"
+		},
+		"AUTH0_CUSTOM_HEADER_API_KEY": {
+			"description": "カスタムドメインの設定プロセス中にAuth0ダッシュボードから取得したOrigin Custom Headersのキー",
+			"value": "cname-api-key"
+		},
+		"AUTH0_CUSTOM_HEADER_API_VALUE": {
+			"description": "カスタムドメインの設定プロセス中にAuth0ダッシュボードから取得したOrigin Custom Headersのバリュー"
+		}
+	}
+}
